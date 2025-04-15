@@ -11,21 +11,14 @@ import java.util.List;
 
 public class SoftwareEngineerController {
 
+    private final SoftwareEngineerService softwareEngineerService;
+
+    public SoftwareEngineerController(SoftwareEngineerService softwareEngineerService) {
+        this.softwareEngineerService = softwareEngineerService;
+    }
+
     @GetMapping
     public List<SoftwareEngineer> getEngineers() {
-        return List.of(
-                new SoftwareEngineer(
-                        1,
-                        "Arsema",
-                        "js, node, tailwindcss, react"
-
-                ),
-                new SoftwareEngineer(
-                        2,
-                        "Betty",
-                        "java, spring, Spring-boot"
-
-        )
-        );
+        return softwareEngineerService.getAllSoftwareEngineers();
     }
 }
